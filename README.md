@@ -20,7 +20,7 @@ With its extensive sound library, customizable characters, and professional-grad
 Users can experiment with different musical styles, learn basic music concepts, and share their creations with the vibrant Sprunki community.
 
 > Best of all, Sprunky Game is completely free and browser-based — no downloads necessary!  
-> Start creating your unique musical masterpieces right now at [SprunkyGame.co](https://sprunkygame.co).
+> Start creating your unique musical masterpieces right now at SprunkyGame.co.
 
 ---
 
