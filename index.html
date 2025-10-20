@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="preconnect" href="https://cdn.sprunkygame.co"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Sprunky | Play Sprunki Incredibox Online - Music Game</title><meta name="description" content="Play Sprunky Game (also named Sprunki) Incredibox online - A fun, interactive music creation game inspired by Incredibox. Mix beats, Create music."><meta name="keywords" content="Sprunky, Sprunki"><link rel="canonical" href="https://sprunkygame.co/"><link rel="alternate" hreflang="en" href="https://sprunkygame.co/"><link rel="alternate" hreflang="es" href="https://sprunkygame.co/es/"><link rel="alternate" hreflang="it" href="https://sprunkygame.co/it/"><link rel="alternate" hreflang="de" href="https://sprunkygame.co/de/"><link rel="alternate" hreflang="ja" href="https://sprunkygame.co/ja/"><link rel="alternate" hreflang="ko" href="https://sprunkygame.co/ko/"><link rel="alternate" hreflang="zh" href="https://sprunkygame.co/zh/"><link rel="alternate" hreflang="x-default" href="https://sprunkygame.co/"><link rel="preload" as="image" href="https://cdn.sprunkygame.co/images/logo.webp" imagesrcset="https://cdn.sprunkygame.co/images/logo.webp 1x" fetchpriority="high" importance="high"><link rel="prefetch" href="/play.html"><link rel="icon" href="/favicon.png" type="image/png"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="/template/default/css/twmin.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Sprunky Game"><meta property="og:title" content="Sprunky | Play Sprunki Incredibox Online - Music Game"><meta property="og:description" content="Play Sprunky Game (also named Sprunki) Incredibox online - A fun, interactive music creation game inspired by Incredibox. Mix beats, Create music."><meta property="og:url" content="https://sprunkygame.co/"><meta property="og:image" content="https://cdn.sprunkygame.co/images/png/screenshot.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@Sprunky Game" /><meta name="twitter:creator" content="@Sprunky Game" /><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.sprunkygame.co/images/png/sprunky-180.png"><meta name="twitter:title" content="Sprunky | Play Sprunki Incredibox Online - Music Game" /><meta name="twitter:url" content="https://sprunkygame.co/" /><meta name="twitter:image" content="https://cdn.sprunkygame.co/images/png/screenshot.png" /><meta name="twitter:description" content="Play Sprunky Game (also named Sprunki) Incredibox online - A fun, interactive music creation game inspired by Incredibox. Mix beats, Create music."><meta name="twitter:card" content="summary" /><meta name="mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Sprunky Game"><style>
+:root{--accent:#8B5CF6;--accent-2:#E11D48;--bg:#1A1A2E;--text:#EDEDF0;--card-bg:#16213E;--card-border:#2A3A5B;--surface:#8B5CF6;--surface-contrast:#1A1A2E;--text-secondary:#B3B7C5;--brand-green:#60A5FA;--brand-yellow:#FCD34D;--heading-color:#F3F4F6}
+body,html{height:100%;margin:0;padding:0}
+body{font-family:'Comic Sans MS','Marker Felt','Bubblegum Sans','Fredoka One','Quicksand','Microsoft YaHei',cursive,fantasy,sans-serif;background:var(--bg);color:var(--text);font-size:18px;line-height:1.6;font-weight:600;visibility:hidden}
+body.loaded{visibility:visible}
+img{max-width:100%;height:auto;display:block}
+.resp-iframe{position:relative;width:100%;padding-top:56.25%}
+.resp-iframe>iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:.5rem}
+:where(article,aside,nav,section) h1{font-size:1.5rem;line-height:2rem}
+
+.expanded-mode {
+position: fixed !important;
+top: 0 !important;
+left: 0 !important;
+width: 100vw !important;
+height: 100vh !important;
+z-index: 9999 !important;
+background: var(--bg) !important;
+margin: 0 !important;
+padding: 0 !important;
+max-width: none !important;
+}
+
+.expanded-mode > div {
+width: 100% !important;
+max-width: none !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+
+.expanded-mode #game-card {
+position: fixed !important;
+top: 0 !important;
+left: 0 !important;
+width: 100vw !important;
+height: 100vh !important;
+max-width: none !important;
+max-height: none !important;
+border-radius: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
+border: none !important;
+}
+
+.expanded-mode #game-frame-wrap {
+position: fixed !important;
+top: 0 !important;
+left: 0 !important;
+width: 100vw !important;
+height: calc(100vh - 80px) !important;
+padding: 0 !important;
+margin: 0 !important;
+max-width: none !important;
+}
+
+.expanded-mode #game-controls {
+position: fixed !important;
+bottom: 0 !important;
+left: 0 !important;
+right: 0 !important;
+width: 100vw !important;
+height: 80px !important;
+background: var(--card-bg) !important;
+border-top: 2px solid var(--card-border) !important;
+padding: 15px 20px !important;
+margin: 0 !important;
+box-sizing: border-box !important;
+}
+
+body.game-expanded > *:not(main) {
+display: none !important;
+}
+
+body.game-expanded main > *:not(#play-sprunky-online) {
+display: none !important;
+}
+
+body.game-expanded main {
+max-width: none !important;
+width: 100% !important;
+padding: 0 !important;
+margin: 0 !important;
+}
+
+body.game-expanded {
+overflow: hidden !important;
+}
+
+h1,h2,h3,h4,h5,h6{font-family:'Comic Sans MS','Marker Felt','Bubblegum Sans','Fredoka One','Quicksand','Microsoft YaHei','微软雅黑',cursive,fantasy,sans-serif;font-weight:800;color:var(--heading-color)}
+h2{background:linear-gradient(135deg,#60A5FA,#FCD34D);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+h1{font-size:2.25rem}h2{font-size:2rem}h3{font-weight:600;font-size:1.35rem}
+.heading-font{font-family:inherit;font-weight:800;color:var(--heading-color)}
+.faq-section h3{font-size:1.2rem;line-height:1.35}
+@media (min-width:1024px){.faq-section h3{font-size:1.3rem}}
+a{color:inherit;transition:color .2s ease}
+a:hover{color:var(--brand-yellow)}
+.btn{transition:transform .15s ease,opacity .15s ease}
+.btn:active{transform:scale(.98)}
+.card{background:var(--card-bg);backdrop-filter:saturate(130%) blur(4px);border:1px solid var(--card-border);border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.soft-surface{background:rgba(139,92,246,.12)}
+header.site-header{border-bottom:1px solid var(--card-border)}
+.brand-title{background:0 0!important;-webkit-background-clip:initial!important;background-clip:initial!important;-webkit-text-fill-color:initial!important;color:var(--text)!important}
+#title-line{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+#title-line #played-text{display:block;margin-left:0;margin-top:2px}
+.gradient-text.brand-title{background:0 0!important;-webkit-background-clip:initial!important;background-clip:initial!important;-webkit-text-fill-color:initial!important;color:inherit!important}
+.resp-iframe{position:relative;width:100%;padding-top:56.25%}
+.resp-iframe>iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:.5rem}
+@media (max-width:768px){.resp-iframe{padding-top:84.375%}}
+.share-pop{position:absolute;right:0;top:3rem;z-index:40}
+.star{cursor:pointer;transition:transform .12s ease}
+.star:hover{transform:scale(1.05)}
+.faq-section,.howto-section{content-visibility:auto;contain-intrinsic-size:900px}
+.step-dot{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:50%;background:var(--brand-yellow);color:#0A0A0A;font-weight:700;border:1px solid #D97706;box-shadow:0 6px 16px rgba(252,211,77,.25)}
+#avg-rating,#played-text{color:var(--text-secondary)!important}
+.text-gray-300{color:var(--text-secondary)!important}
+.btn{color:var(--text);font-weight:600}
+.star svg{transition:fill .15s ease,stroke .15s ease}
+.star svg path{transition:fill .15s ease,stroke .15s ease}
+.btn.soft-surface{transition:background .2s ease,color .2s ease,transform .12s ease}
+.btn.soft-surface:hover{background:var(--brand-yellow);color:#0A0A0A;border:1px solid #D97706}
+.howto-section .howto-step{align-items:center}
+.howto-section .howto-divider{height:1px;background:var(--card-border)}
+.howto-section .step-img{border:1px solid var(--card-border);width:300px;height:300px;object-fit:cover}
+.howto-section .grid>article{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.howto-section .grid>article>.inline-flex{justify-content:center;gap:.5rem;text-align:center}
+.howto-section .grid>article>div:not(.inline-flex),.howto-section .grid>article>p{text-align:left}
+.language-selector{font-family:inherit}
+.lang-btn{background:0 0;color:var(--text);border:1px solid var(--card-border);box-shadow:0 2px 8px rgba(0,0,0,.25);transition:all .3s cubic-bezier(.4,0,.2,1);font-weight:600}
+.lang-btn:hover{background:rgba(139,92,246,.12);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.lang-btn.active .lang-arrow{transform:rotate(180deg)}
+.lang-flag{font-size:1.1em;filter:drop-shadow(0 1px 2px rgba(0,0,0,.1))}
+.lang-dropdown{background:var(--bg);border:1px solid var(--card-border);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.language-selector:hover .lang-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-option{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;font-weight:500}
+.lang-option:last-child{border-bottom:none}
+.lang-option:hover{background:rgba(139,92,246,.08)!important;color:var(--text);transform:translateX(2px)}
+.lang-option.active{background:rgba(225,29,72,.15);color:var(--text);font-weight:600}
+.lang-option.active::after{content:'✓';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--brand-yellow);font-weight:700}
+.lang-emoji{font-size:1.2em;filter:drop-shadow(0 1px 2px rgba(0,0,0,.1))}
+.lang-name{font-weight:500;transition:all .2s ease}
+@media (max-width:640px){.lang-btn{padding:.5rem .75rem}.lang-text{display:none}.lang-flag{font-size:1.3em}.lang-dropdown{min-width:140px;right:-10px}.lang-option{padding:.75rem 1rem}.lang-name{font-size:.9rem}}
+.howto-section .grid>article picture,.howto-section .grid>article>img{align-self:center}
+@media(min-width:1024px){.howto-section .grid>article{flex-direction:column;align-items:center}}
+.howto-section .grid>article picture,.howto-section .grid>article>img{max-width:220px;border:1px solid var(--card-border);border-radius:.5rem;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+@media(min-width:1024px){.howto-section .grid>article picture,.howto-section .grid>article>img{max-width:300px}}
+@media(min-width:1280px){.howto-section .grid>article picture,.howto-section .grid>article>img{max-width:360px}}
+.howto-section .grid>article .heading-font{margin:0}
+.howto-section .grid>article .step-dot{width:2rem;height:2rem}
+.howto-section .grid>article+article{padding-top:1rem;margin-top:.5rem}
+.faq-section details summary{display:flex;align-items:center;gap:.5rem;cursor:pointer}
+.faq-section details summary h3{margin:0;line-height:1.4}
+.faq-section details summary::-webkit-details-marker{display:none}
+.faq-section details summary::marker{content:''}
+.faq-section details summary::before{content:'';display:inline-block;width:.6rem;height:.6rem;border-right:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease;margin-right:.1rem}
+.faq-section details[open] summary::before{transform:rotate(135deg)}
+.about-section h2,.faq-section h2,.features-section h2,.howto-section h2{margin-bottom:1.5rem;color:var(--heading-color)}
+.howto-section h3{font-weight:800;letter-spacing:.01em}
+.howto-section h3::after{content:"";display:block;width:64px;height:4px;margin:.4rem auto 0;background:var(--brand-yellow);border-radius:9999px;opacity:.95}
+.features-section h3{font-weight:700}
+.features-section h3{margin-bottom:.75rem}
+.feature-card .icon-wrap{width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(139,92,246,.15);color:var(--brand-yellow);border:1px solid #4C1D95;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.feature-card .badge{min-width:28px;height:28px;border-radius:9999px;background:rgba(255,255,255,.08);display:inline-flex;align-items:center;justify-content:center;margin-left:.5rem;font-weight:700}
+#back-to-top{position:fixed;right:20px;bottom:20px;width:48px;height:48px;display:none;display:none;align-items:center;justify-content:center;background:var(--card-bg);border:1px solid var(--card-border);color:var(--text);border-radius:9999px;box-shadow:var(--shadow);font-size:0;z-index:2147483600}
+#back-to-top svg path{fill:currentColor}
+.toc-toggle{position:fixed;right:20px;bottom:84px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--card-bg);border:1px solid var(--card-border);color:var(--text);border-radius:9999px;box-shadow:var(--shadow);font-size:0;z-index:2147483600}
+.toc-toggle svg circle,.toc-toggle svg path,.toc-toggle svg rect{fill:currentColor}
+.html-toc{position:fixed;right:20px;bottom:135px;z-index:2147483599;display:none}
+.html-toc.open{display:block}
+.html-toc-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:saturate(120%) blur(2px);z-index:49;display:none}
+.html-toc.open .html-toc-backdrop{display:block}
+.html-toc-pop{position:relative;z-index:50;min-width:260px;max-width:86vw;max-height:60vh;overflow:auto;background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.toc-header{padding:10px 12px 6px 12px;font-weight:600;color:var(--text)}
+.toc-list{list-style:none;padding:4px 12px 12px 12px;margin:0}
+.toc-item{margin:6px 0;display:flex;align-items:flex-start;gap:8px}
+.toc-dot{display:inline-block;width:6px;height:6px;border-radius:9999px;background:var(--text);margin-top:10px;opacity:.8}
+.toc-link{color:var(--text);text-decoration:none;line-height:1.5}
+.html-toc.open .html-toc-backdrop{display:none!important}
+.toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9999;padding:15px 24px;border-radius:8px;background:rgba(0,0,0,.75);color:#fff;font-size:14px;opacity:0;transition:opacity .2s ease}
+.toast.show{opacity:1}
+.toast-success{background:rgba(16,185,129,.9)}
+.toast-error{background:rgba(239,68,68,.95)}
+@media(max-width:640px){#title-line{display:flex;flex-direction:column;align-items:flex-start;gap:4px}#title-line #played-text{margin-left:0;display:block}}
+@media(max-width:640px){#game-controls{gap:10px}.heading-font.text-2xl{display:block}.heading-font.text-2xl+#played-text{display:block;margin-left:0}.heading-font+#played-text{display:block}.heading-font~#played-text{display:block}.heading-font+span#played-text{display:block}.heading-font+#played-text{margin-top:2px}.heading-font{white-space:normal}.heading-font+#played-text{white-space:normal}.heading-font+#played-text{line-height:1.4}#controls-actions{display:grid!important;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}#controls-actions>a.btn,#controls-actions>button.btn{width:100%;justify-content:center}#controls-actions svg{margin:0 auto}}
+@media(max-width:640px){.step-img{display:block!important;margin:0 auto!important;width:300px!important;height:300px!important;object-fit:cover!important}.about-section picture,.howto-section .grid>article picture{display:block!important;margin-left:auto!important;margin-right:auto!important;text-align:center!important;float:none!important}}
+a:hover{color:var(--brand-yellow)!important}
+.comments__form_submit{background:var(--brand-yellow)!important;color:#0A0A0A!important;border:1px solid #D97706!important;box-shadow:0 8px 18px rgba(252,211,77,.25)!important}
+.comments__form_submit:hover{filter:brightness(1.05)}
+.comments__form-input{background:rgba(19,19,32,.85)!important;border-color:var(--card-border)!important;color:var(--text)!important}
+.comments__form-input::placeholder{color:#8E90A3!important}
+.comments__form-input:focus{outline:2px solid var(--brand-yellow)!important;border-color:#D97706!important}
+#controls-actions .btn{border:1px solid var(--card-border)!important}
+#game-card{border:1px solid var(--card-border)!important}
+.about-section .card,.faq-section .card,.features-section .card,.howto-section .card{border:1px solid var(--card-border)!important;background:var(--card-bg)!important}
+.brand-title,.site-title{background:linear-gradient(90deg,#60A5FA,#FCD34D)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;color:transparent!important}
+.howto-section .grid>article{display:flex!important;flex-direction:column!important;align-items:center!important;gap:1rem!important}
+.howto-section .grid>article>.inline-flex{order:1}
+.howto-section .grid>article>div:not(.inline-flex),.howto-section .grid>article>p{order:3;text-align:left}
+#controls-actions a.btn:hover,#controls-actions button.btn:hover,.btn.soft-surface:hover{color:var(--surface-contrast)!important}
+.character-card{background:linear-gradient(135deg,#1A1A2E 0%,#16213E 50%,#0F3460 100%)!important;border:2px solid rgba(139,92,246,0.3)!important;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)!important;position:relative;overflow:hidden}
+.character-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent 30%,rgba(139,92,246,0.1) 50%,transparent 70%);transform:translateX(-100%);transition:transform 0.6s ease;z-index:1}
+.character-card:hover::before{transform:translateX(100%)}
+.character-card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--accent)!important;box-shadow:0 20px 40px rgba(139,92,246,0.4),0 0 30px rgba(225,29,72,0.2)!important}
+.character-card > *{position:relative;z-index:2}
+.character-img{border:3px solid rgba(225,29,72,0.4)!important;transition:all 0.3s ease!important;box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+.character-card:hover .character-img{border-color:var(--accent-2)!important;transform:scale(1.1) rotate(5deg);box-shadow:0 12px 30px rgba(225,29,72,0.5)}
+.character-card .badge{background:linear-gradient(135deg,#E11D48,#8B5CF6)!important;color:#FFFFFF!important;font-weight:800!important;text-shadow:0 2px 4px rgba(0,0,0,0.5);animation:pulse 2s infinite}
+.character-card h3{background:linear-gradient(135deg,#60A5FA,#FCD34D);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none!important}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.max-w-7xl{max-width:900px!important}
+.max-w-prose{max-width:100%!important}
+@media (max-width: 768px) {
+    .characters-section .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+}
+.video-container {
+    transition: all 0.3s ease;
+}
+.play-button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+.play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
+}
+.strategies-section .icon-wrap,
+.music-section .icon-wrap,
+.development-section .icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139,92,246,.15);
+    color: var(--brand-yellow);
+    border: 1px solid #4C1D95;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    font-size: 20px;
+}
+.footer-border {
+    border-color: var(--card-border) !important;
+}
+.song-names-container {
+    background: var(--fnf-gradient-3) !important;
+    border: 2px solid rgba(139,92,246,0.3) !important;
+    box-shadow: 0 8px 32px rgba(139,92,246,0.15) !important;
+    transition: all 0.3s ease !important;
+}
+.song-names-container:hover {
+    border-color: rgba(225,29,72,0.4) !important;
+    box-shadow: 0 12px 40px rgba(139,92,246,0.25) !important;
+}
+.week-section {
+    background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(225,29,72,0.1) 100%);
+    border: 1px solid rgba(139,92,246,0.2);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+.week-section:hover {
+    border-color: rgba(139,92,246,0.4);
+    box-shadow: 0 8px 25px rgba(139,92,246,0.2);
+}
+.week-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F3F4F6;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #60A5FA, #FCD34D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.songs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+.songs-grid.week1-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+@media (max-width: 768px) {
+    .songs-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .songs-grid.week1-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 480px) {
+    .songs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.song-tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.song-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.song-tag.tutorial { background: rgba(156,163,175,0.3); color: #D1D5DB; }
+.song-tag.week1 { background: rgba(59,130,246,0.3); color: #93C5FD; }
+.song-tag.week2 { background: rgba(249,115,22,0.3); color: #FDBA74; }
+.song-tag.week3 { background: rgba(34,197,94,0.3); color: #86EFAC; }
+.song-tag.week4 { background: rgba(236,72,153,0.3); color: #F9A8D4; }
+.song-tag.week5 { background: rgba(14,165,233,0.3); color: #7DD3FC; }
+.song-tag.week6 { background: rgba(168,85,247,0.3); color: #C4B5FD; }
+.song-tag.week7 { background: rgba(239,68,68,0.3); color: #FCA5A5; }
+.song-tag.week8 { background: rgba(245,101,101,0.3); color: #FEB2B2; }
+kbd {
+    display: inline-block;
+    padding: 3px 6px;
+    margin: 0 2px;
+    font-size: 0.85em;
+    font-weight: 600;
+    line-height: 1;
+    color: #1f2937;
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+.screenshot-img {
+    border: 2px solid rgba(139,92,246,0.3) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(139,92,246,0.15) !important;
+}
+
+.screenshot-img:hover {
+    border-color: rgba(225,29,72,0.5) !important;
+    box-shadow: 0 8px 20px rgba(139,92,246,0.25) !important;
+    transform: translateY(-2px) !important;
+}
+
+.screenshot-item {
+    transition: all 0.3s ease !important;
+}
+
+.screenshot-item:hover {
+    transform: translateY(-4px) !important;
+}
+
+.howto-step .step-header {
+    margin-bottom: 1rem !important;
+}
+
+.howto-step .step-image {
+    margin: 1rem 0 !important;
+}
+
+.howto-step .step-content {
+    margin-top: 1rem !important;
+}
+@media (max-width:640px){
+    .pcgg { display:none!important;}
+}
+.step-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.screenshot-item {
+    position: relative;
+}
+.screenshot-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.character-img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    min-height: 200px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+    .video-container {
+        aspect-ratio: 16/9;
+        min-height: 180px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: calc(100vw - 2rem);
+    }
+
+    .music-section .card {
+        padding: 1rem !important;
+        overflow: hidden;
+    }
+    
+    .video-container .play-button {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .video-container .play-button svg {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    .video-container p {
+        font-size: 14px !important;
+    }
+    
+    .video-container .text-lg {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        aspect-ratio: 4/3;
+        min-height: 150px;
+    }
+}
+
+.heading-font {
+    font-display: swap;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-display: swap;
+}
+
+body {
+    visibility: hidden;
+}
+body.loaded {
+    visibility: visible;
+}
+
+img[loading="lazy"] {
+    min-height: 1px;
+}
+
+#game-frame-wrap {
+    contain: layout style paint;
+}
+
+.resp-iframe {
+    contain: layout;
+}
+
+.card {
+    contain: layout style;
+}
+
+main {
+    contain: layout;
+}
+</style><script>
+// 页面加载完成显示内容
+function showPage() {
+    document.body.classList.add('loaded');
+}
+
+if (document.readyState !== 'loading') {
+    showPage();
+} else {
+    document.addEventListener('DOMContentLoaded', showPage);
+}
+</script><link rel="stylesheet" href="/template/default/css/comments.css"><link rel="dns-prefetch" href="https://cdn.sprunkygame.co"><link rel="preconnect" href="https://cdn.sprunkygame.co" crossorigin><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Sprunky Game","url":"https://sprunkygame.co/","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Sprunky","applicationCategory":"Game","operatingSystem":"Web Browser","genre":["Rhythm","Music","Creative"],"image":"https://cdn.sprunkygame.co/images/sprunkygame.webp","screenshot":"https://cdn.sprunkygame.co/images/screenshot.webp","url":"https://sprunkygame.co/","publisher":{"@type":"Organization","name":"Sprunky"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"739","bestRating":"5","worstRating":"1"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"free"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Play Sprunky Game","inLanguage":"en","totalTime":"PT5M","tool":[{"@type":"HowToTool","name":"Mouse or Touch"}],"step":[{"@type":"HowToStep","position":1,"name":"Step 1: Select Sounds","text":"Visit SprunkyGame.co, and hit the play button. Choose from Sprunky's diverse library of beats, effects, and melodies, represented by different characters.","image":"https://cdn.sprunkygame.co/images/step1.webp"},{"@type":"HowToStep","position":2,"name":"Step 2: Arrange Characters","text":"Drag and drop characters onto the screen. Each character adds a unique sound, allowing you to build layers and create your track.","image":"https://cdn.sprunkygame.co/images/step2.webp"},{"@type":"HowToStep","position":3,"name":"Step 3: Experiment with Combinations","text":"Try out different arrangements and combinations to create unique rhythms and melodies. The possibilities are endless, so let your creativity flow!","image":"https://cdn.sprunkygame.co/images/step3.webp"},{"@type":"HowToStep","position":4,"name":"Step 4: Create Your Mix","text":"Adjust volumes, add effects, and use other editing tools to enhance your mix and achieve the perfect sound. Discover bonus animations and hidden features by combining certain sounds."},{"@type":"HowToStep","position":5,"name":"Step 5: Save and Share","text":"Once you've created your mix, record it and share it with friends or the Sprunki community for feedback and collaboration."}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"What is the Sprunky game?","acceptedAnswer":{"@type":"Answer","text":"Sprunky (also named Sprunki) is an online rhythm and music creation game inspired by Incredibox. It's a modified version that allows players to create custom music tracks by combining unique sound loops and characters using creative characters and unique soundscapes. Designed to make music creation accessible and fun for everyone."}},{"@type":"Question","name":"Is Sprunky free to play?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Sprunky game is entirely free, with no hidden costs or paid upgrades, no download needed - play online in your browser."}},{"@type":"Question","name":"What is Sprunky Mod?","acceptedAnswer":{"@type":"Answer","text":"Sprunky Mod is a fan-made adaptation of the Incredibox game, featuring unique characters, sounds, and themes that enhance the music-mixing experience."}},{"@type":"Question","name":"What makes Sprunky Incredibox Game different from other music games?","acceptedAnswer":{"@type":"Answer","text":"Sprunky Incredibox Game stands out with its unique collection of characters and innovative sound mixing capabilities that promote creativity and spontaneous music creation. Its intuitive drag-and-drop design makes music production enjoyable and accessible for all ages and skill levels."}},{"@type":"Question","name":"Can I play Sprunki on mobile?","acceptedAnswer":{"@type":"Answer","text":"While Sprunky works best on desktop, it is accessible on most mobile devices. However, a dedicated mobile version may be released in the future."}}]}</script><style>
+		@media (max-width: 768px) {
+		  #played-text {
+			display: none!important;
+		  }
+		}
+		</style></head><body class="min-h-screen antialiased"><header class="w-full border-b border-white border-opacity-10 site-header"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between"><a href="/" class="inline-flex items-center gap-4" aria-label="Sprunky"><picture><source type="image/webp" srcset="https://cdn.sprunkygame.co/images/logo.webp"><img src="https://cdn.sprunkygame.co/images/logo.webp" alt="Sprunky" width="294" height="187" class="rounded" loading="eager" fetchpriority="high" style="height:90px;width:auto;max-width:450px"></picture><span class="heading-font text-2xl sm:text-3xl lg:text-4xl leading-none gradient-text brand-title site-title">Sprunky Game</span></a><div class="flex items-center gap-2"><div class="language-selector relative"><button class="lang-btn flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300" id="langToggle" aria-label="Select Language"><span class="lang-flag">🌍</span><span class="lang-text text-sm font-medium">English</span><svg class="lang-arrow w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="lang-dropdown absolute right-0 top-full mt-2 bg-white rounded-2xl shadow-xl border border-opacity-20 border-gray-300 overflow-hidden opacity-0 invisible transform translate-y-2 transition-all duration-300 z-50 min-w-[160px]" id="langDropdown"><div class="lang-option-wrapper"><a href="/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 active"><span class="lang-emoji">EN</span><span class="lang-name">English</span></a><a href="/es/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">ES</span><span class="lang-name">Español</span></a><a href="/it/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">IT</span><span class="lang-name">Italiano</span></a><a href="/de/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">DE</span><span class="lang-name">Deutsch</span></a><a href="/ja/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">JP</span><span class="lang-name">日本語</span></a><a href="/ko/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">KR</span><span class="lang-name">한국어</span></a><a href="/zh/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">CN</span><span class="lang-name">中文</span></a></div></div></div></div></div></header><main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 space-y-8"><section class="grid grid-cols-1 gap-4 items-start" id="play-sprunky-online"><div><div id="game-card" class="card rounded-lg p-3 sm:p-4"><div class="resp-iframe" id="game-frame-wrap"><iframe id="game-frame" src="/play.html" title="Play Sprunky Game Online" loading="eager" fetchpriority="high" allowfullscreen></iframe></div><div id="game-controls" class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><div class="flex items-center gap-3 flex-wrap" id="game-controls-inner"><div id="title-line" class="flex items-baseline gap-3 flex-wrap"><h1 class="heading-font text-2xl sm:text-3xl"><a href="https://sprunkygame.co/">Sprunky</a></h1></div><div class="flex items-center gap-1 ml-1" aria-label="rate this game"><button class="star" data-star="1" aria-label="rate 1"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="2" aria-label="rate 2"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="3" aria-label="rate 3"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="4" aria-label="rate 4"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="5" aria-label="rate 5"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><span class="text-sm text-gray-300 ml-2 mr-1">739 voted,</span><span id="avg-rating" class="text-sm text-gray-300 ml-1">4.9/5.0</span></div><div class="flex items-baseline gap-2"><button id="bookmark-btn" class="text-sm text-purple-400 hover:text-pink-400 transition-colors duration-200 cursor-pointer whitespace-nowrap" title="Bookmark this page"> Press Ctrl+D to Bookmark </button><span class="text-sm text-gray-400 whitespace-nowrap" style="display: none;"> 3,688 plays </span></div></div><div id="controls-actions" class="flex items-center gap-2 sm:gap-3 flex-nowrap ml-auto self-end sm:self-auto justify-end w-full sm:w-auto"><a href="#discuss-sprunky" class="btn inline-flex items-center gap-2 px-4 h-12 rounded-md soft-surface hover:bg-opacity-20 whitespace-nowrap" aria-label="Go to comments"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-message"></use></svg><span class="text-base text-gray-300">3</span></a><button id="expand-btn" class="btn inline-flex items-center gap-2 px-4 h-12 rounded-md soft-surface hover:bg-opacity-20 text-gray-100 whitespace-nowrap" aria-label="Expand game"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-rectangle"></use></svg></button><button id="fs-btn" class="btn inline-flex items-center gap-2 px-4 h-12 rounded-md soft-surface hover:bg-opacity-20 text-gray-100 whitespace-nowrap" aria-label="Fullscreen (game)"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-maximize"></use></svg></button></div><div class="mt-4 flex justify-center"></div></div></div></div></section><section class="space-y-6 about-section grid grid-cols-1 gap-4 items-start"><div><h2 id="about-sprunky-game" class="heading-font text-2xl sm:text-3xl text-center">About Sprunky Game</h2><article class="card rounded-lg p-6 space-y-4"><picture class="flex justify-center"><img alt="Sprunky Game - Interactive Music Creation" width="300" height="300" loading="lazy" class="rounded-md step-img mx-auto" src="https://cdn.sprunkygame.co/images/sprunky.webp"></picture><p class="text-lg" style="color:var(--text)"><a href="https://sprunkygame.co" target="_blank"><strong>Sprunky</strong></a> (also named <strong>Sprunki</strong>) is a fun, interactive music creation game where you can mix beats, sounds, and vocals by arranging unique characters. It's inspired by the popular Incredibox series, offering an intuitive way to make your own music.</p><p class="text-lg text-gray-300"><strong>What Makes Sprunky Game Special</strong></p><p class="text-lg text-gray-300">Sprunky Game is an innovative fan-made expansion of Incredibox, offering a creative twist with custom mods, new phases, and unique gameplay elements. Created by passionate fans like NyankoBfLol, a 15-year-old developer from Thailand, Sprunki has evolved into a vibrant platform where music enthusiasts and gamers unite to create amazing musical experiences.</p><p class="text-lg text-gray-300">Whether you're exploring the original Sprunki mods or diving into themed expansions, each game session offers endless possibilities for creative expression. The intuitive drag-and-drop interface makes music creation accessible to everyone, from beginners to experienced producers.</p><p class="text-lg text-gray-300">With its extensive sound library, customizable characters, and professional-grade audio tools, Sprunky Game provides both entertainment and educational value. Users can experiment with different musical styles, learn basic music concepts, and share their creations with the vibrant Sprunki community.</p><p class="text-lg text-gray-300">Best of all, Sprunky Game is completely free and browser-based - no downloads necessary! Start creating your unique musical masterpieces right now at SprunkyGame.co.</p></article></div></section><section class="space-y-6 howto-section grid grid-cols-1 gap-4 items-start"><div><h2 id="how-to-play-sprunky" class="heading-font text-2xl sm:text-3xl text-center">How to Play Sprunky Game</h2><div class="grid grid-cols-1 gap-6"><article class="howto-step card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="step-header inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">1</span><h3 class="heading-font text-2xl">Step 1: Select Sounds</h3></div><div class="step-content"><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Visit SprunkyGame.co, and hit the play button. Choose from Sprunky's diverse library of beats, effects, and melodies, represented by different characters.</p></div><picture class="step-image flex justify-center w-full"><img src="https://cdn.sprunkygame.co/images/step1.webp" alt="Select sounds from Sprunky's diverse library" width="844" height="182" loading="lazy" class="rounded-md w-full h-auto max-w-[600px]"></picture></article><article class="howto-step card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="step-header inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">2</span><h3 class="heading-font text-2xl">Step 2: Arrange Characters</h3></div><div class="step-content"><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Drag and drop characters onto the screen. Each character adds a unique sound, allowing you to build layers and create your track.</p></div><picture class="step-image flex justify-center w-full"><img src="https://cdn.sprunkygame.co/images/step2.webp" alt="Drag and drop Sprunky characters" width="600" height="213" loading="lazy" class="rounded-md w-full h-auto max-w-[600px]"></picture></article><article class="howto-step card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="step-header inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">3</span><h3 class="heading-font text-2xl">Step 3: Experiment with Combinations</h3></div><div class="step-content"><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Try out different arrangements and combinations to create unique rhythms and melodies. The possibilities are endless, so let your creativity flow!</p></div><picture class="step-image flex justify-center w-full"><img src="https://cdn.sprunkygame.co/images/step3.webp" alt="Experiment with different character combinations" width="1436" height="867" loading="lazy" class="rounded-md w-full h-auto max-w-[400px]"></picture></article><article class="howto-step card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="step-header inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">4</span><h3 class="heading-font text-2xl">Step 4: Create Your Mix</h3></div><div class="step-content"><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Adjust volumes, add effects, and use other editing tools to enhance your mix and achieve the perfect sound. Discover bonus animations and hidden features by combining certain sounds.</p></div></article><article class="howto-step card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="step-header inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">5</span><h3 class="heading-font text-2xl">Step 5: Save and Share</h3></div><div class="step-content"><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Once you've created your mix, record it and share it with friends or the Sprunki community for feedback and collaboration.</p></div></article></div></div></section><section class="space-y-6 strategies-section grid grid-cols-1 gap-4 items-start"><div><h2 id="strategies-and-tips" class="heading-font text-2xl sm:text-3xl text-center mb-6">Tips for Success in Sprunky Game</h2><article class="card rounded-lg p-6 space-y-6"><div class="space-y-4"><div class="flex items-start gap-4"><div class="icon-wrap flex-shrink-0">🎵</div><div><h3 class="heading-font text-lg mb-2">Experiment with Sound Combinations</h3><p class="text-base text-gray-300">Try different mixes to uncover hidden gems and unexpected results. Mix and match characters from different categories to discover unique sound combinations.</p></div></div><div class="flex items-start gap-4"><div class="icon-wrap flex-shrink-0">🎯</div><div><h3 class="heading-font text-lg mb-2">Follow the Beat</h3><p class="text-base text-gray-300">Pay attention to how the sounds interact for a more harmonious track. Listen to the rhythm and ensure your elements work together cohesively.</p></div></div><div class="flex items-start gap-4"><div class="icon-wrap flex-shrink-0">📺</div><div><h3 class="heading-font text-lg mb-2">Explore Tutorials</h3><p class="text-base text-gray-300">Watch gameplay guides on YouTube to get better at creating well-balanced compositions. Learn from experienced creators in the Sprunki community.</p></div></div><div class="flex items-start gap-4"><div class="icon-wrap flex-shrink-0">👥</div><div><h3 class="heading-font text-lg mb-2">Engage with the Community</h3><p class="text-base text-gray-300">Share your mixes, join contests, and collaborate with other players for inspiration and new ideas. The Sprunki community is welcoming and supportive!</p></div></div></div></article></div></section><section class="space-y-6 screenshot-section grid grid-cols-1 gap-4 items-start"><div><h2 id="screenshot-of-sprunky" class="heading-font text-2xl sm:text-3xl text-center mb-2">Sprunky Game Screenshots</h2><p class="text-center text-base text-gray-400 mb-6">Experience the colorful world of Sprunky music creation</p><div class="grid grid-cols-2 lg:grid-cols-4 gap-4"><div class="screenshot-item"><img src="https://cdn.sprunkygame.co/images/screenshot1.webp" alt="Sprunky Game - Sprunki Mr.Tree & Green (Vineria) & Blue (Jevin)" width="400" height="400" class="screenshot-img rounded-lg w-full h-auto" loading="lazy"><p class="text-center text-sm text-gray-300 mt-2">Sprunki Mr.Tree & Sprunki Green (Vineria) & Sprunki Blue (Jevin)</p></div><div class="screenshot-item"><img src="https://cdn.sprunkygame.co/images/screenshot2.webp" alt="Sprunki Gold (Garnold) & Sprunki Fun Bot & Sprunki Pink (Pinki)" width="400" height="400" class="screenshot-img rounded-lg w-full h-auto" loading="lazy"><p class="text-center text-sm text-gray-300 mt-2">Sprunki Gold (Garnold) & Sprunki Fun Bot & Sprunki Pink (Pinki)</p></div><div class="screenshot-item"><img src="https://cdn.sprunkygame.co/images/screenshot3.webp" alt="Sprunki Sky Blue (Sky) & Sprunki Yellow (Simon) & Sprunki Mr. Fun Computer" width="400" height="400" class="screenshot-img rounded-lg w-full h-auto" loading="lazy"><p class="text-center text-sm text-gray-300 mt-2">Sprunki Sky Blue (Sky) & Sprunki Yellow (Simon) & Sprunki Mr. Fun Computer</p></div><div class="screenshot-item"><img src="https://cdn.sprunkygame.co/images/screenshot4.webp" alt="Sprunki Gold (Garnold) & Sprunki Purple (Durple) & Sprunki Blue (Jevin)" width="400" height="400" class="screenshot-img rounded-lg w-full h-auto" loading="lazy"><p class="text-center text-sm text-gray-300 mt-2">Sprunki Gold (Garnold) & Sprunki Purple (Durple) & Sprunki Blue (Jevin)</p></div></div></div></section><section class="space-y-6 characters-section grid grid-cols-1 gap-4 items-start"><div><h2 id="sprunky-characters" class="heading-font text-2xl sm:text-3xl text-center">Sprunky Characters</h2><p class="text-center text-lg text-gray-300 mb-8">Meet the unique sound characters that bring your music to life</p><h3 class="heading-font text-xl mb-4 text-center">🥁 Beats</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/orange.webp" alt="Sprunki Orange (Oren)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Orange (Oren)</h4><span class="badge">Beat</span></div></div><p class="text-base text-gray-300">Oren provides upbeat electronic rhythms that energize your track. His lively beats form a dynamic backbone, making him a must-have for crafting vibrant, fast-paced compositions on Sprunky Game's platform.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/silver.webp" alt="Sprunki Silver (Clukr)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Silver (Clukr)</h4><span class="badge">Beat</span></div></div><p class="text-base text-gray-300">Clukr introduces mechanical beats with a futuristic touch. His precise, industrial sounds add a cutting-edge flair, ideal for tracks that capture a sci-fi or high-tech atmosphere, perfectly suited for Sprunky Game enthusiasts.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/funbot.webp" alt="Sprunki Fun Bot" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Fun Bot</h4><span class="badge">Beat</span></div></div><p class="text-base text-gray-300">Fun Bot offers playful, robotic beats laced with quirky effects. His eccentric rhythms deliver a lighthearted, experimental feel—perfect for inventive creators on Sprunky Game who love unconventional compositions fueled by the Sprunki universe.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/red.webp" alt="Sprunki Red (Raddy)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Red (Raddy)</h4><span class="badge">Beat</span></div></div><p class="text-base text-gray-300">Raddy's powerful drum beats infuse intensity and boldness. His commanding presence ensures your track stands out, especially when you're aiming for a high-energy sound to impress the Sprunky Game audience.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/green.webp" alt="Sprunki Green (Vineria)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Green (Vineria)</h4><span class="badge">Beat</span></div></div><p class="text-base text-gray-300">Vineria brings deep, groovy beats that establish a soothing flow. His steady rhythms are ideal for laid-back, chill tunes, helping you craft relaxing soundscapes that appeal to the Sprunky Game community.</p></article></div><h3 class="heading-font text-xl mb-4 text-center">✨ Effects</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/gray.webp" alt="Sprunki Gray" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Gray</h4><span class="badge">Effect</span></div></div><p class="text-base text-gray-300">Gray contributes atmospheric effects that add depth and dimension to your mix. His echoing tones foster an immersive environment, perfect for giving your music a layered feel that resonates with Sprunky Game fans.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/brown.webp" alt="Sprunki Brown (Brud)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Brown (Brud)</h4><span class="badge">Effect</span></div></div><p class="text-base text-gray-300">Brud's quirky sound effects bring unpredictability and fun. His playful noises provide a surprising twist, ideal for tracks that thrive on originality and creativity—two hallmarks of the Sprunky Game experience.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/tan.webp" alt="Sprunki Gold (Garnold)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Gold (Garnold)</h4><span class="badge">Effect</span></div></div><p class="text-base text-gray-300">Garnold's metallic effects amplify intensity and grandeur. His heavy sounds add drama and authority, helping your track command attention and standing out among Sprunky Game creators.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/lime.webp" alt="Sprunki Lime (OWAKCX)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Lime (OWAKCX)</h4><span class="badge">Effect</span></div></div><p class="text-base text-gray-300">OWAKCX introduces mysterious, abstract effects that cultivate suspense and intrigue. His unique textures are perfect for tracks aiming to captivate listeners who explore Sprunky Game for innovative musical adventures.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/sky.webp" alt="Sprunki Sky Blue (Sky)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Sky Blue (Sky)</h4><span class="badge">Effect</span></div></div><p class="text-base text-gray-300">Sky's light, airy effects lift the tone of your composition. His refreshing, ethereal sounds provide a sense of calm, balancing out more intense elements to appeal to Sprunky Game users seeking variety and depth.</p></article></div><h3 class="heading-font text-xl mb-4 text-center">🎹 Melodies</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/sun.webp" alt="Sprunki: Mr. Sun" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki: Mr. Sun</h4><span class="badge">Melody</span></div></div><p class="text-base text-gray-300">Mr. Sun delivers bright, uplifting melodies that radiate warmth and positivity. His cheerful tones are perfect for creating feel-good music that stands out on Sprunky Game's vibrant platform.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/purple.webp" alt="Sprunki Purple (Durple)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Purple (Durple)</h4><span class="badge">Melody</span></div></div><p class="text-base text-gray-300">Durple's deep, emotive melodies add soul and depth to your composition. His rich sound brings heartfelt warmth, making your music resonate with emotional intensity treasured by the Sprunky Game community.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/tree.webp" alt="Sprunki Mr. Tree" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Mr. Tree</h4><span class="badge">Melody</span></div></div><p class="text-base text-gray-300">Mr. Tree offers soothing, organic melodies that evoke the tranquility of nature. His earthy tones ground your track, ideal for serene, reflective sessions that many Sprunky Game creators adore.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/yellow.webp" alt="Sprunki Yellow (Simon)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Yellow (Simon)</h4><span class="badge">Melody</span></div></div><p class="text-base text-gray-300">Simon's crisp, sharp melodies cut through the mix, adding bright hooks that captivate listeners. His vibrant sound ensures your track shines with clarity, impressing fans in the Sprunky Game space.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/tan.webp" alt="Sprunki Tan (Tunner)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Tan (Tunner)</h4><span class="badge">Melody</span></div></div><p class="text-base text-gray-300">Tunner's mellow, relaxing melodies envelop your composition in a comforting atmosphere. His laid-back sound is perfect for ambient tracks designed to relax and intrigue the Sprunky Game audience.</p></article></div><h3 class="heading-font text-xl mb-4 text-center">🎤 Vocals</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/computer.webp" alt="Sprunki Mr. Fun Computer" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Mr. Fun Computer</h4><span class="badge">Vocal</span></div></div><p class="text-base text-gray-300">Mr. Fun Computer's robotic vocals lend a futuristic, tech-driven quality to your music. His mechanical voice is ideal for compositions that explore innovation—an attribute admired by Sprunky Game's inventive community.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/white.webp" alt="Sprunki White (Wenda)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki White (Wenda)</h4><span class="badge">Vocal</span></div></div><p class="text-base text-gray-300">Wenda's smooth, angelic vocals add elegance and softness. Her gentle harmonies enhance emotional depth, lending a refined beauty to your track that will resonate with Sprunky Game listeners.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/pink.webp" alt="Sprunki Pink (Pinki)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Pink (Pinki)</h4><span class="badge">Vocal</span></div></div><p class="text-base text-gray-300">Pinki's bubbly, playful vocals inject a cheerful, animated element. Her upbeat sound is great for tracks that celebrate fun, positivity, and the joyful spirit of Sprunky Game's creative environment.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/blue.webp" alt="Sprunki Blue (Jevin)" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Blue (Jevin)</h4><span class="badge">Vocal</span></div></div><p class="text-base text-gray-300">Jevin's deep, resonant vocals provide a cool, charismatic layer. His rich tone adds character and depth, perfect for music that needs a confident voice to captivate Sprunky Game followers.</p></article><article class="character-card card rounded-lg p-6 flex flex-col gap-4"><div class="flex items-center gap-4"><img src="https://cdn.sprunkygame.co/images/black.webp" alt="Sprunki Black" width="80" height="80" class="character-img rounded-lg w-20 h-20 object-cover" loading="lazy"><div><h4 class="heading-font text-xl">Sprunki Black</h4><span class="badge">Vocal</span></div></div><p class="text-base text-gray-300">Black's powerful, soulful voice introduces intensity and emotion. His commanding presence suits tracks that strive for memorable impact, appealing to the taste of Sprunky Game's passionate user base.</p></article></div></div></section><section class="space-y-6 features-section grid grid-cols-1 gap-4 items-start"><div><h2 id="key-features-of-sprunky" class="heading-font text-2xl sm:text-3xl text-center">Key Features of Sprunky Game</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap">🆓</div><span class="badge px-2">1</span></div><h3 class="heading-font text-lg">Free and Accessible</h3><p class="text-base text-gray-300">Sprunky is entirely free and browser-based, meaning no downloads are necessary, making it accessible to a wide audience.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap">🎨</div><span class="badge px-2">2</span></div><h3 class="heading-font text-lg">Creative Freedom</h3><p class="text-base text-gray-300">Offers an extensive sound library and customizable characters, allowing users to create unique compositions and explore various musical styles.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap">📚</div><span class="badge px-2">3</span></div><h3 class="heading-font text-lg">Educational Value</h3><p class="text-base text-gray-300">Sprunky encourages musical experimentation, which can help users learn basic music concepts while having fun.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap">🌈</div><span class="badge px-2">4</span></div><h3 class="heading-font text-lg">Variety of Themes</h3><p class="text-base text-gray-300">With modes like "Infected" and "Dandy's World," each offering unique sounds and visuals, Sprunky keeps the experience fresh and engaging.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap">🎼</div><span class="badge px-2">5</span></div><h3 class="heading-font text-lg">Professional Music Creation Suite</h3><p class="text-base text-gray-300">Access studio-quality sounds and professional music production tools to create commercial-grade tracks.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap">🖱️</div><span class="badge px-2">6</span></div><h3 class="heading-font text-lg">Intuitive Production Interface</h3><p class="text-base text-gray-300">Start producing professional-quality music instantly with our user-friendly, drag-and-drop studio environment.</p></article></div></div></section><section class="space-y-6 faq-section grid grid-cols-1 gap-4 items-start"><div><h2 id="faq-about-sprunky" class="heading-font text-2xl sm:text-3xl text-center">FAQs about Sprunky Game</h2><div class="grid grid-cols-1 gap-4"><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">What is the Sprunky game?</h3></summary><p class="mt-2 text-base text-gray-300">Sprunky (also named Sprunki) is an online rhythm and music creation game inspired by Incredibox. It's a modified version that allows players to create custom music tracks by combining unique sound loops and characters using creative characters and unique soundscapes. Designed to make music creation accessible and fun for everyone.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">Is Sprunky free to play?</h3></summary><p class="mt-2 text-base text-gray-300">Yes, the Sprunky game is entirely free, with no hidden costs or paid upgrades, no download needed - play online in your browser.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">What is Sprunky Mod?</h3></summary><p class="mt-2 text-base text-gray-300">Sprunky Mod is a fan-made adaptation of the Incredibox game, featuring unique characters, sounds, and themes that enhance the music-mixing experience.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">What makes Sprunky Incredibox Game different from other music games?</h3></summary><p class="mt-2 text-base text-gray-300">Sprunky Incredibox Game stands out with its unique collection of characters and innovative sound mixing capabilities that promote creativity and spontaneous music creation. Its intuitive drag-and-drop design makes music production enjoyable and accessible for all ages and skill levels.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">Can I play Sprunki on mobile?</h3></summary><p class="mt-2 text-base text-gray-300">While Sprunky works best on desktop, it is accessible on most mobile devices. However, a dedicated mobile version may be released in the future.</p></details></div></div></section><section class="space-y-6 comments-section grid grid-cols-1 gap-4 items-start"><div><h2 id="discuss-sprunky" class="heading-font text-2xl sm:text-3xl text-center mb-6">Discuss Sprunky Game</h2><script defer type="text/javascript">
+						const tool_id = "1";
+							const tool_image = "https://sprunkygame.co/images/logo.webp";
+						const tool_title = "Sprunky";
+						const tool_name = "Sprunky";
+						const tool_url = "https://sprunkygame.co/";
+							window.wwwdomain = '';
+							window.iflogin = 0;
+							const _LANG={};
+						_LANG.try_again_later='Try again later';
+						_LANG.removed_from_fav='Removed from favorites';
+						_LANG.added_from_fav='Added to favorites';
+						_LANG.continue_by_sign='Continue by signing in';
+						_LANG.submitting='Submitting';
+						_LANG.thankyou='Thank you';
+						_LANG.post='Post';
+						_LANG.exitfullscreen='Exit fullscreen';
+						_LANG.confirm='Confirm';
+						_LANG.cancel='Cancel';
+						_LANG.copied='Copied';
+						_LANG.yourname='Your name';
+						_LANG.yourcomment='Your comment';
+						_LANG.submitted='Submitted';
+						_LANG.voted_today='Voted today';
+						_LANG.under_review='Under review';
+						_LANG.just_now='Just now';
+						_LANG.reply='Reply';
+						_LANG.leaveacomment='Leave a comment';
+						_LANG.at_least_3='At least 3 characters';
+						_LANG.at_least_10='At least 10 characters';
+						</script><div class="comments rounded-lg p-6" id="comments"><form class="comments__form comments__main-form" id="commentForm"><input type="hidden" name="typeid" value="1" id="typeid"><input type="hidden" name="parentid" value="0" id="parentid"><input type="hidden" name="source_title" value="Sprunky" type="hidden" id="source_title"><input type="hidden" name="source_uri" value="https://sprunkygame.co/" type="hidden" id="source_uri"><input type="hidden" name="type" value="tool" id="type"><div class="comments__form-group"><input value="" placeholder="Your name" type="text" id="comment_name" name="comment_name" class="comments__form-input" required></div><div class="comments__form-group"><textarea placeholder="Your comment" id="comment_message" name="comment_message" class="comments__form-input comments__form-textarea" required></textarea><div class="g-recaptcha" data-sitekey="6LeafKwrAAAAAJLHvuf-PS9kPhfYN2-40qoOJaVj"></div></div><button type="submit" class="comments__form_submit">Leave a comment</button></form><div id="comments-container" class="comments__list"></div><div class="comments__pagination-show"></div></div><script src="/template/default/js/comments_ajax.js"></script><script defer>
+					new IntersectionObserver(([e], o) => e.isIntersecting && (
+					  o.unobserve(e.target),
+					  new CommentSystem({
+						container: '#comments-container',
+						pagination: '.comments__pagination-show',
+						typeid: 1,
+						source_title: 'Sprunky',		
+						source_uri: 'https://sprunkygame.co/',
+						type: 'tool',
+						loginNeeded: 0,
+						currentPage: 1
+					  })
+					), { rootMargin: '1px' }).observe(document.querySelector('#comments-container'));
+					</script><script defer type="text/javascript" src="/template/default/js/comments.js"></script><script defer type="text/javascript" src="/template/default/js/submitRating.js"></script></div></section></main><footer class="mt-8 border-t footer-border"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid gap-3 sm:flex sm:items-center sm:justify-between"><p class="text-sm text-gray-400">© <span id="year"></span> SprunkyGame.co All rights reserved.</p><nav class="flex flex-wrap items-center gap-4 text-sm"><a href="mailto:hello@sprunkygame.co" rel="nofollow no-referrer">Contact Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms-of-use.html">Terms of Use</a></nav></div></footer><button id="back-to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 5l-7 7h4v7h6v-7h4z"/></svg></button><script>
+(function(){var btn=document.getElementById('back-to-top');if(!btn)return;function onScroll(){var vh=(window.innerHeight||800)/2;btn.style.display=window.scrollY>vh?'flex':'none'}window.addEventListener('scroll',onScroll,{passive:true});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});onScroll()})();function showToast(message,isSuccess=true,confirm){if(confirm){return showConfirm(message,confirm)}const toast=document.createElement("div");toast.className=`toast ${isSuccess?"toast-success":"toast-error"}`;toast.innerHTML=`<span class="toast-message">${message}</span>`;const fullscreenElement=document.fullscreenElement||document.webkitFullscreenElement||document.msFullscreenElement;if(fullscreenElement){fullscreenElement.appendChild(toast)}else{document.body.appendChild(toast)}setTimeout(()=>toast.classList.add("show"),10);setTimeout(()=>{toast.classList.remove("show");setTimeout(()=>toast.remove(),300)},3000)}function showConfirm(message,options={}){if(typeof options==="function"){options={onOk:options}}const{title=_LANG.confirm?_LANG.confirm:"Confirm",okText=_LANG.confirm?_LANG.confirm:"Confirm",cancelText=_LANG.cancel?_LANG.cancel:"Cancel",onOk,onCancel,}=options;const dialog=document.createElement("div");dialog.className="toast-dialog";dialog.innerHTML=`<div class="toast-dialog-backdrop"></div><div class="toast-dialog-content"><div class="toast-dialog-header"><span class="toast-dialog-title">${title}</span><span class="toast-dialog-icon">❓</span></div><div class="toast-dialog-body">${message}</div><div class="toast-dialog-footer"><button class="toast-dialog-btn toast-dialog-cancel">${cancelText}</button><button class="toast-dialog-btn toast-dialog-ok">${okText}</button></div></div>`;document.body.appendChild(dialog);setTimeout(()=>dialog.classList.add("show"),10);return new Promise((resolve)=>{const okBtn=dialog.querySelector(".toast-dialog-ok");const cancelBtn=dialog.querySelector(".toast-dialog-cancel");const closeDialog=(result)=>{dialog.classList.remove("show");setTimeout(()=>{dialog.remove();resolve(result);if(result&&typeof onOk==="function"){onOk()}if(!result&&typeof onCancel==="function"){onCancel()}},200)};okBtn.addEventListener("click",()=>closeDialog(true));cancelBtn.addEventListener("click",()=>closeDialog(false));dialog.querySelector(".toast-dialog-backdrop").addEventListener("click",()=>closeDialog(false))})}var toastStyleEl=document.getElementById('toast-style-el')||document.createElement('style');toastStyleEl.id='toast-style-el';toastStyleEl.textContent=`.toast-dialog{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:2147483647;opacity:0;pointer-events:none;transition:opacity 0.2s ease}.toast-dialog.show{opacity:1;pointer-events:auto}.toast-dialog-backdrop{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);backdrop-filter:var(--backdrop-blur)}.toast-dialog-content{position:relative;background:var(--search-bg);border-radius:12px;width:90%;max-width:400px;overflow:hidden;box-shadow:var(--shadow-hover);transform:translateY(20px);transition:transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);border:1px solid var(--border-foot-color)}.toast-dialog.show.toast-dialog-content{transform:translateY(0)}.toast-dialog-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}.toast-dialog-title{font-size:18px;font-weight:600;color:var(--text-color)}.toast-dialog-icon{font-size:20px;color:var(--primary-color)}.toast-dialog-body{padding:15px 20px 35px 20px;font-size:18px;line-height:1.5;color:var(--text-color);text-align:center}.toast-dialog-footer{display:flex;border-top:1px solid var(--border-foot-color)}.toast-dialog-btn{flex:1;padding:14px;border:none;background:none;font-size:16px;cursor:pointer;transition:all 0.2s;color:var(--text-color)}.toast-dialog-cancel{border-right:1px solid var(--border-foot-color)}.toast-dialog-cancel:hover{background-color:var(--url-hover-bg)}.toast-dialog-ok{font-weight:500;color:var(--primary-color)}.toast-dialog-ok:hover{background-color:rgba(7,193,96,0.1)}@media(max-width:480px){.toast-dialog-content{width:calc(100%-40px);margin:20px}.toast-dialog-body{padding:20px 16px}.toast-dialog-btn{padding:12px}}`;if(!toastStyleEl.parentNode){document.head.appendChild(toastStyleEl)}
+</script><script>
+// Load ShareThis only on desktop to reduce mobile payload
+(function(){
+	var isMobileUA = /Mobi|Android|iPhone|iPad|iPod|Phone/i.test(navigator.userAgent);
+	var isNarrow = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+	if (isMobileUA || isNarrow) { return; }
+	var s = document.createElement('script');
+	s.src = 'https://platform-api.sharethis.com/js/sharethis.js#property=67f8ec9c069b9100198cfd09&product=sticky-share-buttons&source=platform';
+	s.async = true; s.defer = true;
+	document.head.appendChild(s);
+})();
+</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-24VCSXSHG7"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-24VCSXSHG7');
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1271829671637482"
+     crossorigin="anonymous"></script><script defer type="text/javascript" src="/template/default/js/homepage.js"></script><div id="html-toc" class="html-toc"><div id="html-toc-backdrop" class="html-toc-backdrop"></div><nav id="html-toc-pop" class="html-toc-pop" aria-label="Table of Contents"><div class="toc-header">Table of Contents</div><ul class="toc-list"><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#play-sprunky-online">Play Sprunky Now</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#about-sprunky-game">About Sprunky Game</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#how-to-play-sprunky">How to Play</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#strategies-and-tips">Tips for Success</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#screenshot-of-sprunky">Screenshots</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#sprunky-characters">Sprunky Characters</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#key-features-of-sprunky">Key Features</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#faq-about-sprunky">FAQs</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#discuss-sprunky">Discuss Sprunky</a></li></ul></nav></div><button id="toc-toggle" aria-label="Table of contents" class="toc-toggle"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="5" cy="6" r="1.5" /><circle cx="5" cy="12" r="1.5" /><circle cx="5" cy="18" r="1.5" /><rect x="9" y="5" width="10" height="2" rx="1" /><rect x="9" y="11" width="10" height="2" rx="1" /><rect x="9" y="17" width="10" height="2" rx="1" /></svg></button><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="icon-message" viewBox="0 0 24 24"><path fill="currentColor" d="M21 6a3 3 0 0 0-3-3H6A3 3 0 0 0 3 6v9a3 3 0 0 0 3 3h8l4 3v-3h0a3 3 0 0 0 3-3V6Z"/></symbol><symbol id="icon-maximize" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h7v2H6v5H4V4Zm10 0h6v6h-2V6h-4V4ZM4 14h2v4h4v2H4v-6Zm14 0h2v6h-6v-2h4v-4Z"/></symbol><symbol id="icon-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2l2.9 6 6.6 .9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z"/></symbol><symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g></symbol><linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60A5FA"/><stop offset="100%" stop-color="#FCD34D"/></linearGradient><symbol id="icon-rectangle" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol></svg></body></html>
